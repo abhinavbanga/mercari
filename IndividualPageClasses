@@ -1,0 +1,50 @@
+class LoginPage : BasePage() {
+    fun login(username: String, password: String) {
+        enterText(username, "Username")
+        enterText(password, "Password")
+        clickButtonWithText("Login")
+        waitForIdle()
+    }
+}
+
+class ShowcasePage : BasePage() {
+    fun openItem(itemName: String) {
+        clickButtonWithText(itemName)
+        waitForIdle()
+    }
+}
+
+class ItemPage : BasePage() {
+    fun addItemToCart() {
+        clickButtonWithText("Add to Cart")
+        waitForIdle()
+    }
+}
+
+class CartPage : BasePage() {
+    fun startPurchase() {
+        clickButtonWithText("Checkout")
+        waitForIdle()
+    }
+}
+
+class AddressPage : BasePage() {
+    fun completeAddress(fullName: String, address: String, city: String) {
+        enterText(fullName, "Full Name")
+        enterText(address, "Address")
+        enterText(city, "City")
+        clickButtonWithText("Continue")
+        waitForIdle()
+    }
+}
+
+class ConfirmPurchasePage : BasePage() {
+    fun finishPurchase() {
+        clickButtonWithText("Finish Purchase")
+        waitForIdle()
+    }
+
+    fun verifyPurchaseSuccessful() {
+        composeTestRule.onNodeWithText("Purchase Successful").assertHasText()
+    }
+}
