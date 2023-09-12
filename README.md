@@ -2,10 +2,8 @@
 
 **Scenario 1: Implement a Positive End-to-End Test**
 
-First, set up the basic structure for tests, including test classes and methods. In Jetpack Compose, use `@HiltAndroidTest` annotation to enable Hilt dependency injection in the tests.
-
-@HiltAndroidTest
-class PurchaseFlowTest {
+    @HiltAndroidTest
+    class PurchaseFlowTest {
 
     @Inject
     lateinit var userRepository: UserRepository // Assuming I have a UserRepository for authentication
