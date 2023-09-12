@@ -1,0 +1,19 @@
+import androidx.compose.ui.test.assertHasText
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextInput
+import androidx.compose.ui.test.waitForIdle
+
+open class BasePage {
+    fun waitForIdle() {
+        composeTestRule.waitForIdle()
+    }
+
+    fun clickButtonWithText(text: String) {
+        composeTestRule.onNodeWithText(text).performClick()
+    }
+
+    fun enterText(text: String, inputFieldText: String) {
+        composeTestRule.onNodeWithText(inputFieldText).performTextInput(text)
+    }
+}
