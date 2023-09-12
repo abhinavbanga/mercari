@@ -1,0 +1,20 @@
+@Test
+fun testPurchaseFlow() {
+    val loginPage = LoginPage()
+    val showcasePage = ShowcasePage()
+    val itemPage = ItemPage()
+    val cartPage = CartPage()
+    val addressPage = AddressPage()
+    val confirmPurchasePage = ConfirmPurchasePage()
+
+    // Perform the test steps using the page objects
+    loginPage.login("username", "password")
+    showcasePage.openItem("Item 1")
+    itemPage.addItemToCart()
+    showcasePage.openItem("Item 2")
+    itemPage.addItemToCart()
+    cartPage.startPurchase()
+    addressPage.completeAddress("John Doe", "123 Main St", "Cityville")
+    confirmPurchasePage.finishPurchase()
+    confirmPurchasePage.verifyPurchaseSuccessful()
+}
